@@ -13,4 +13,9 @@ export default defineConfig({
   onSuccess: "cp src/styles.css dist/",
   watch: true,
   injectStyle: true,
+  esbuildOptions(options) {
+    options.banner = {
+      js: '"use client";',
+    };
+  },
 });

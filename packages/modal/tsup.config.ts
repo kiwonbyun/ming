@@ -3,7 +3,10 @@ import { defineConfig } from "tsup";
 export default defineConfig({
   entry: ["src/index.tsx"],
   format: ["cjs", "esm"],
-  dts: true,
+  dts: {
+    entry: "src/index.tsx",
+    resolve: true,
+  },
   splitting: true,
   sourcemap: true,
   clean: true,
@@ -13,4 +16,9 @@ export default defineConfig({
   onSuccess: "cp src/styles.css dist/",
   watch: true,
   injectStyle: true,
+  esbuildOptions(options) {
+    options.banner = {
+      js: '"use client";',
+    };
+  },
 });

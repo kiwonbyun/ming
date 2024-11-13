@@ -6,6 +6,7 @@
     "dev": "turbo run dev",
     "dev:website": "pnpm --filter website dev",
     "dev:toast": "pnpm --filter @wemeet-overlay/toast dev",
+    "dev:modal": "pnpm --filter @wemeet-overlay/modal dev",
     "lint": "turbo run lint",
     "test": "turbo run test",
     "clean": "turbo run clean",
