@@ -1,0 +1,18 @@
+# Dependencies
+node_modules
+.pnp
+.pnp.js
+
+# Build Outputs
+dist
+build
+*.tsbuildinfo
+
+# Testing
+coverage
+.nyc_output
+
+
+/packages/*/node_modules
+.turbo
+.cache
