@@ -66,6 +66,8 @@
   position: relative;
   padding: 10px 14px;
   box-sizing: border-box;
+
+  animation: toastEnter 0.07s ease-out forwards;
 }
 
 :where([data-wemeet-toast-item]) :where([data-toast-content]) {
@@ -141,4 +143,16 @@
 :where([data-wemeet-toast-item][data-type="message"])
   :where([data-toast-icon]) {
   display: none;
+}
+@keyframes toastEnter {
+  0% {
+    opacity: 0;
+    transform: scale(0.6);
+    filter: blur(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0);
+  }
 }

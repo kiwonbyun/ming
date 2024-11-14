@@ -1,52 +1,48 @@
 "use client";
 
 import { cloneElement, useEffect, useId, useState } from "react";
-import type { CSSProperties, MouseEvent, ReactElement, ReactNode } from "react";
+import type {
+  ButtonHTMLAttributes,
+  CSSProperties,
+  MouseEvent,
+  ReactElement,
+  ReactNode,
+} from "react";
 import { ModalState } from "./state";
 import { ModalPortal, modalRootId } from "./components/ModalPortal";
 import CloseIcon from "./components/CloseIcon";
+import { ModalProvider, useModalController } from "./context";
 
-interface ModalController {
+export interface ModalController {
   isOpen: boolean;
-  open: () => void;
   close: () => void;
-  clear?: () => void;
+  clear: () => void;
   isTop?: boolean;
 }
 
 interface ModalProps {
   trigger: ReactNode;
-  children: (props: { controller: ModalController }) => ReactNode;
+  children: ((props: { controller: ModalController }) => ReactNode) | ReactNode;
 }
 
-interface WrapperProps {
-  children: ReactNode;
-  className?: string;
-  style?: CSSProperties;
-  width?: number | string;
-  height?: number | string;
-}
+let defaultDimClose = true;
 
-interface HeaderProps {
-  children: ReactNode;
-}
-
-const ModalRoot = () => <div id={modalRootId}></div>;
+const ModalRoot = ({ dimClose = true }) => {
+  defaultDimClose = dimClose;
+  return <div id={modalRootId}></div>;
+};
 
 const Modal = ({ trigger, children }: ModalProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const modalId = useId();
+  const isManualChild = typeof children === "function";
 
   const controller: ModalController = {
     isOpen,
-    open: () => {
-      ModalState.open(modalId);
-    },
     close: () => {
       ModalState.close(modalId);
     },
     clear: () => {
-      console.log("clear");
       ModalState.closeAll();
     },
   };
@@ -55,7 +51,7 @@ const Modal = ({ trigger, children }: ModalProps) => {
     onClick: (e: MouseEvent) => {
       const original = (trigger as ReactElement).props.onClick;
       original?.(e);
-      controller.open();
+      ModalState.open(modalId);
     },
   });
 
@@ -91,33 +87,118 @@ const Modal = ({ trigger, children }: ModalProps) => {
   return (
     <div>
       {triggerElement}
-      <ModalPortal isOpen={isOpen} close={controller.close}>
-        {children({ controller })}
+      <ModalPortal
+        isOpen={isOpen}
+        close={controller.close}
+        dimClose={defaultDimClose}
+      >
+        <ModalProvider value={{ controller }}>
+          {isManualChild ? children({ controller }) : children}
+        </ModalProvider>
       </ModalPortal>
     </div>
   );
 };
 
-const ModalContents = ({
+type TWidthUnit = "px" | "%" | "vw";
+type THeightUnit = "px" | "%" | "vh";
+
+interface WrapperProps {
+  children: ReactNode;
+  className?: string;
+  style?: CSSProperties;
+  width?: number | `${number}${TWidthUnit}`;
+  height?: number | `${number}${THeightUnit}`;
+}
+
+const ModalContent = ({
   children,
   className,
   style,
   width = 400,
   height = 300,
 }: WrapperProps) => {
-  const computedWidth = typeof width === "number" ? width + "px" : width;
-  const computedHeight = typeof height === "number" ? height + "px" : height;
   return (
     <div
       data-modal-content
       className={className}
-      style={{ width: computedWidth, height: computedHeight, ...style }}
+      style={{ width, height, ...style }}
     >
       {children}
     </div>
   );
 };
 
-Modal.Contents = ModalContents;
+interface SubmitProps
+  extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, "onClick"> {
+  onClick?: () => Promise<void> | void;
+  clear?: boolean;
+  width?: number | `${number}${TWidthUnit}`;
+}
+
+const ModalSubmit = ({
+  onClick,
+  children,
+  clear = false,
+  width,
+  ...props
+}: SubmitProps) => {
+  const [isLoading, setIsLoading] = useState(false);
+  const controller = useModalController();
+  const closeFunc = clear ? controller.clear : controller.close;
+
+  const handleClick = async () => {
+    if (!onClick) return closeFunc();
+
+    try {
+      setIsLoading(true);
+      await onClick();
+      closeFunc();
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  return (
+    <button
+      data-button
+      data-modal-submit
+      onClick={handleClick}
+      disabled={isLoading}
+      style={{ width, ...props.style }}
+      {...props}
+    >
+      {children}
+    </button>
+  );
+};
+
+interface CloseProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  width?: number | `${number}${TWidthUnit}`;
+}
+
+const ModalClose = ({ width, ...props }: CloseProps) => {
+  const controller = useModalController();
+  const handleClick = (e: MouseEvent<HTMLButtonElement>) => {
+    props.onClick?.(e);
+    controller.close();
+  };
+
+  return (
+    <button
+      data-button
+      data-modal-close
+      style={{ width, ...props.style }}
+      {...props}
+      onClick={handleClick}
+    >
+      {props.children}
+    </button>
+  );
+};
+
+Modal.Content = ModalContent;
+Modal.Submit = ModalSubmit;
+Modal.Close = ModalClose;
 
 export { Modal, ModalRoot };

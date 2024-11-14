@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import type { ToastI, ToastType } from "../types";
 import CloseIcon from "./icon/CloseIcon";
 import ErrorIcon from "./icon/ErrorIcon";
@@ -30,17 +30,21 @@ function getIcon(type?: ToastType) {
 }
 
 function ToastItem({ toast, expanded, removeToast }: ToastItemProps) {
+  const [isRemoving, setIsRemoving] = useState(false);
   const closeTimerStartTimeRef = React.useRef(0);
   const lastCloseTimerStartTimeRef = React.useRef(0);
   const remainingTime = React.useRef(toast.duration || TOAST_LIFETIME);
   const isDefaultToast = toast.type === "message";
 
   const deleteToast = React.useCallback(() => {
-    removeToast(toast);
+    setIsRemoving(true);
+    setTimeout(() => {
+      removeToast(toast);
+    }, 100);
   }, [toast, removeToast]);
 
   React.useEffect(() => {
-    let timeoutId: NodeJS.Timeout;
+    let timeoutId: ReturnType<typeof setTimeout>;
 
     const pauseTimer = () => {
       if (lastCloseTimerStartTimeRef.current < closeTimerStartTimeRef.current) {
@@ -71,7 +75,11 @@ function ToastItem({ toast, expanded, removeToast }: ToastItemProps) {
   }, [expanded, toast, deleteToast]);
 
   return (
-    <li data-wemeet-toast-item data-type={toast.type}>
+    <li
+      data-wemeet-toast-item
+      className={isRemoving ? "removing" : ""}
+      data-type={toast.type}
+    >
       <div>{toast?.icon ?? getIcon(toast.type)}</div>
       {isDefaultToast ? (
         <span data-title>{toast.message}</span>

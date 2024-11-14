@@ -7,6 +7,7 @@ import "../styles.css";
 interface ModalPortalProps extends HTMLAttributes<HTMLDivElement> {
   isOpen: boolean;
   children: React.ReactNode;
+  dimClose: boolean;
   close?: () => void;
   style?: CSSProperties;
 }
@@ -16,6 +17,7 @@ export const modalRootId = "wemeet-overlay-root";
 export const ModalPortal = ({
   isOpen,
   children,
+  dimClose,
   close,
   style,
   className,
@@ -38,7 +40,11 @@ export const ModalPortal = ({
 
   return createPortal(
     <Fragment>
-      <div data-modal-dim className="wemeet-modal-dim" onClick={close} />
+      <div
+        data-modal-dim
+        className="wemeet-modal-dim"
+        onClick={dimClose ? close : undefined}
+      />
       <div
         data-modal-container
         className="wemeet-modal-container"
