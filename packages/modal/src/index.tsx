@@ -27,8 +27,8 @@ interface ModalProps {
 
 let defaultDimClose = true;
 
-const ModalRoot = ({ dimClose = true }) => {
-  defaultDimClose = dimClose;
+const ModalRoot = ({ dimAutoClose = true }) => {
+  defaultDimClose = dimAutoClose;
   return <div id={modalRootId}></div>;
 };
 
@@ -109,6 +109,7 @@ interface WrapperProps {
   style?: CSSProperties;
   width?: number | `${number}${TWidthUnit}`;
   height?: number | `${number}${THeightUnit}`;
+  title?: string | ReactNode;
 }
 
 const ModalContent = ({
@@ -117,15 +118,26 @@ const ModalContent = ({
   style,
   width = 400,
   height = 300,
+  title,
 }: WrapperProps) => {
+  const controller = useModalController();
   return (
-    <div
-      data-modal-content
-      className={className}
-      style={{ width, height, ...style }}
-    >
-      {children}
-    </div>
+    <>
+      {!!title && (
+        <header data-modal-header>
+          <span>{title}</span>
+          <CloseIcon onClick={controller.close} />
+        </header>
+      )}
+      <div
+        data-modal-content
+        data-with-header={!!title}
+        className={className}
+        style={{ width, height, ...style }}
+      >
+        {children}
+      </div>
+    </>
   );
 };
 

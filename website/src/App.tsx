@@ -1,21 +1,20 @@
-import { Modal } from "@wemeet-overlay/modal";
 import ToastTester from "./ToastTester";
+import ModalTester from "./ModalTester";
 
 function App() {
   return (
-    <main>
+    <main
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        gap: "50px",
+        overflowY: "auto",
+      }}
+    >
+      <h1>Wemeet-Overlay</h1>
       <ToastTester />
-      <div>
-        <Modal trigger={<button>모달열기</button>}>
-          <Modal.Content width={600} height={300}>
-            <div>콘텐츠</div>
-            <div style={{ display: "flex", gap: "8px" }}>
-              <Modal.Close>닫기</Modal.Close>
-              <Modal.Submit>확인</Modal.Submit>
-            </div>
-          </Modal.Content>
-        </Modal>
-      </div>
+      <ModalTester />
     </main>
   );
 }

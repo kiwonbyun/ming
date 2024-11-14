@@ -26,10 +26,9 @@
 }
 
 :where([data-wemeet-toast-toaster]) {
-  --toast-font-family: inherit;
+  --wemeet-toast-font-family: inherit;
+  font-family: var(--wemeet-toast-font-family);
   position: fixed;
-
-  font-family: var(--toast-font-family);
   box-sizing: border-box;
   padding: 0;
   margin: 0;
