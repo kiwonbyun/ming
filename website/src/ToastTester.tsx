@@ -1,33 +1,55 @@
 import { Position, toast, Toaster } from "@wemeet-overlay/toast";
-import Button from "./components/button";
-import { useState } from "react";
+import Button from "./components/Button";
+import { useMemo, useState } from "react";
 import DraculaCodeBlock from "./components/DraculaCodeBlock";
 import "./index.css";
+
+type ToastType = "message" | "success" | "error" | "warning" | "info";
 
 function ToastTester() {
   const [position, setPosition] = useState<Position>("bottom-center");
   const [offset, setOffset] = useState("24px");
+  const [toastType, setToastType] = useState<ToastType>("message");
   const openToast = () => {
-    toast("정상적으로 처리되었습니다.");
+    if (toastType === "message") toast("정상적으로 처리되었습니다.");
+    if (toastType === "success")
+      toast.success("성공!", { description: "게시물이 생성되었습니다." });
+    if (toastType === "error")
+      toast.error("실패!", { description: "입력값을 확인해주세요." });
+    if (toastType === "warning")
+      toast.warning("경고!", {
+        description: "사용자에게 노출될 수 있습니다.",
+        duration: 1000,
+      });
+    if (toastType === "info")
+      toast.info("알림!", {
+        description: "해당 항목은 필수값입니다. ",
+      });
   };
-  const openSuccess = () => {
-    toast.success("성공!", { description: "게시물이 생성되었습니다." });
-  };
-  const openError = () => {
-    toast.error("실패!", { description: "입력값을 확인해주세요." });
-  };
-  const openWarning = () => {
-    toast.warning("경고!", {
-      description: "사용자에게 노출될 수 있습니다. 1초만에 사라집니다",
-      duration: 1000,
-    });
-  };
-  const openInfo = () => {
-    toast.info("알림!", {
-      description:
-        "해당 항목은 필수값입니다. 만약 텍스트가 매우매우 길어지는 경우에는 이렇게 보입니다. 최대 길이에 대한 설정이 필요해 보입니다.아아아아아아아아아아아아아아아아아아아아아아아아아아아아",
-    });
-  };
+
+  const toastCode = useMemo(() => {
+    if (toastType === "message")
+      return `const openToast = () =>{
+  toast("정상적으로 처리되었습니다.")
+}`;
+    if (toastType === "success")
+      return `const openToast = () =>{
+  toast.success("성공!", { description: "게시물이 생성되었습니다." });
+}`;
+    if (toastType === "error")
+      return `const openToast = () =>{
+  toast.error("실패!", { description: "입력값을 확인해주세요." });
+}`;
+    if (toastType === "warning")
+      return `const openToast = () =>{
+  toast.warning("경고!", { description: "사용자에게 노출될 수 있습니다.", duration: 1000 });
+}`;
+    if (toastType === "info")
+      return `const openToast = () =>{
+  toast.info("알림!", { description: "해당 항목은 필수값입니다." });
+}`;
+    return "";
+  }, [toastType]);
 
   return (
     <div
@@ -123,12 +145,41 @@ createRoot(document.getElementById("root")!).render(
 `}
       />
       <div style={{ display: "flex", gap: "8px", justifyContent: "center" }}>
-        <Button onClick={openToast}>토스트 발생</Button>
-        <Button onClick={openSuccess}>success토스트 발생</Button>
-        <Button onClick={openError}>error토스트 발생</Button>
-        <Button onClick={openWarning}>warning토스트 발생</Button>
-        <Button onClick={openInfo}>info토스트 발생</Button>
+        <Button
+          onClick={() => setToastType("message")}
+          buttonType={toastType === "message" ? "primary" : "default"}
+        >
+          일반 토스트
+        </Button>
+        <Button
+          onClick={() => setToastType("success")}
+          buttonType={toastType === "success" ? "primary" : "default"}
+        >
+          success 토스트
+        </Button>
+        <Button
+          onClick={() => setToastType("error")}
+          buttonType={toastType === "error" ? "primary" : "default"}
+        >
+          error 토스트
+        </Button>
+        <Button
+          onClick={() => setToastType("warning")}
+          buttonType={toastType === "warning" ? "primary" : "default"}
+        >
+          warning 토스트
+        </Button>
+        <Button
+          onClick={() => setToastType("info")}
+          buttonType={toastType === "info" ? "primary" : "default"}
+        >
+          info 토스트
+        </Button>
       </div>
+      <DraculaCodeBlock text={toastCode} />
+      <Button onClick={openToast} buttonType="primary" primaryColor="#1C48CD">
+        토스트 실행시키기
+      </Button>
     </div>
   );
 }

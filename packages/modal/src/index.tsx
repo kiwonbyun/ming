@@ -143,13 +143,19 @@ const ModalContent = ({
 
 interface SubmitProps
   extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, "onClick"> {
-  onClick?: () => Promise<void> | void;
+  promise?: () => Promise<any>;
+  onClick?: () => void;
+  onSuccess?: (res: any) => void;
+  onFail?: (res: any) => void;
   clear?: boolean;
   width?: number | `${number}${TWidthUnit}`;
 }
 
 const ModalSubmit = ({
+  promise,
   onClick,
+  onSuccess,
+  onFail,
   children,
   clear = false,
   width,
@@ -160,12 +166,20 @@ const ModalSubmit = ({
   const closeFunc = clear ? controller.clear : controller.close;
 
   const handleClick = async () => {
-    if (!onClick) return closeFunc();
+    if (!promise) {
+      onClick?.();
+      closeFunc();
+      return;
+    }
 
     try {
       setIsLoading(true);
-      await onClick();
+      onClick?.();
+      const res = await promise();
+      onSuccess?.(res);
       closeFunc();
+    } catch (err) {
+      onFail?.(err);
     } finally {
       setIsLoading(false);
     }

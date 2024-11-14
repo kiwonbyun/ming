@@ -59,6 +59,7 @@ export const ToastState = new Observer();
 const defaultToast = ToastState.message;
 
 export const toast = Object.assign(defaultToast, {
+  message: ToastState.message,
   success: ToastState.success,
   info: ToastState.info,
   warning: ToastState.warning,

@@ -2,13 +2,18 @@ import { ButtonHTMLAttributes } from "react";
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   buttonType?: "default" | "primary";
+  primaryColor?: string;
 }
-function Button({ buttonType = "default", ...props }: ButtonProps) {
+function Button({
+  buttonType = "default",
+  primaryColor = "#434753",
+  ...props
+}: ButtonProps) {
   const isPrimary = buttonType === "primary";
   return (
     <button
       style={{
-        backgroundColor: isPrimary ? "#434753" : "white",
+        backgroundColor: isPrimary ? primaryColor : "white",
         border: "none",
         padding: "10px 16px",
         borderRadius: 6,

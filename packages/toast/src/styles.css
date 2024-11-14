@@ -69,6 +69,10 @@
   animation: toastEnter 0.07s ease-out forwards;
 }
 
+:where([data-wemeet-toast-item].removing) {
+  animation: toastExit 0.1s ease-out forwards;
+}
+
 :where([data-wemeet-toast-item]) :where([data-toast-content]) {
   display: flex;
   flex-direction: column;
@@ -153,5 +157,18 @@
     opacity: 1;
     transform: scale(1);
     filter: blur(0);
+  }
+}
+
+@keyframes toastExit {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.5);
+    filter: blur(10px);
   }
 }
