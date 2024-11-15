@@ -3,6 +3,7 @@ import type { CSSProperties, HTMLAttributes } from "react";
 import React, { Fragment, useEffect } from "react";
 import { createPortal } from "react-dom";
 import "../styles.css";
+import { ModalState } from "../state";
 
 interface ModalPortalProps extends HTMLAttributes<HTMLDivElement> {
   isOpen: boolean;
@@ -25,9 +26,10 @@ export const ModalPortal = ({
   ...props
 }: ModalPortalProps) => {
   const html = document.documentElement;
+  const modals = ModalState.getModal();
 
   useEffect(() => {
-    if (isOpen && html) {
+    if (modals.length && html) {
       html.style.setProperty("overflow", "hidden");
     } else {
       html.style.setProperty("overflow", "auto");
@@ -35,7 +37,7 @@ export const ModalPortal = ({
     return () => {
       html.style.setProperty("overflow", "auto");
     };
-  }, [isOpen]);
+  }, [isOpen, modals]);
 
   if (!isOpen) return null;
 

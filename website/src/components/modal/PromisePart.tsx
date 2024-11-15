@@ -72,13 +72,13 @@ function PromisePart({
           onClick={() => setIsSuccess(true)}
           buttonType={isSuccess ? "primary" : "default"}
         >
-          promise fulfilled case
+          비동기 요청 성공
         </Button>
         <Button
           onClick={() => setIsSuccess(false)}
           buttonType={!isSuccess ? "primary" : "default"}
         >
-          promise rejected case
+          비동기 요청 실패
         </Button>
       </div>
       <DraculaCodeBlock text={codeText} />

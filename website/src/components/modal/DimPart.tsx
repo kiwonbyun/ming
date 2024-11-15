@@ -15,13 +15,13 @@ function DimPart({ autoClose, setAutoClose }: DimPartProps) {
           onClick={() => setAutoClose(true)}
           buttonType={autoClose ? "primary" : "default"}
         >
-          dim auto close
+          Dim 영역 닫기 활성화
         </Button>
         <Button
           onClick={() => setAutoClose(false)}
           buttonType={!autoClose ? "primary" : "default"}
         >
-          disable dim auto close
+          Dim 영역 닫기 비활성화
         </Button>
       </div>
       <DraculaCodeBlock

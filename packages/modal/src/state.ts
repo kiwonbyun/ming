@@ -54,6 +54,9 @@ class Observer {
     this.modalIds.forEach((id) => this.publish({ id, isOpen: false }));
     this.modalIds = [];
   };
+  getModal = () => {
+    return this.modalIds;
+  };
 }
 
 export const ModalState = new Observer();
