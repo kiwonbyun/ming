@@ -29,7 +29,7 @@ function PromisePart({
                   <Modal.Close>취소</Modal.Close>
                   <Modal.Submit
                     clear
-                    promise={promiseFunc}
+                    promise={${isSuccess ? "successApiReq" : "failApiReq"}}
                     onFulfilled={(res: string) => toast.success("성공", { description: res })}}
                     onRejected={(err: string) => toast.error("실패", { description: err })}}
                   >
