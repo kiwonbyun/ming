@@ -56,7 +56,7 @@ function ToastTester() {
       style={{ display: "flex", flexDirection: "column", alignItems: "center" }}
     >
       <Toaster position={position} offset={offset} />
-      <h3>@wemeet-overlay/toast</h3>
+      <h2>@wemeet-overlay/toast</h2>
       <div style={{ display: "flex", gap: "8px", justifyContent: "center" }}>
         <Button
           onClick={() => setPosition("top-right")}

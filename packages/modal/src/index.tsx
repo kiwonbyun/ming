@@ -34,16 +34,23 @@ const ModalRoot = ({ dimAutoClose = true }) => {
 
 const Modal = ({ trigger, children }: ModalProps) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isRemoving, setIsRemoving] = useState(false);
   const modalId = useId();
   const isManualChild = typeof children === "function";
 
   const controller: ModalController = {
     isOpen,
     close: () => {
-      ModalState.close(modalId);
+      setIsRemoving(true);
+      setTimeout(() => {
+        ModalState.close(modalId);
+      }, 100);
     },
     clear: () => {
-      ModalState.closeAll();
+      setIsRemoving(true);
+      setTimeout(() => {
+        ModalState.closeAll();
+      }, 100);
     },
   };
 
@@ -77,9 +84,13 @@ const Modal = ({ trigger, children }: ModalProps) => {
     ModalState.subscribe((modal) => {
       if (modal.id !== modalId) return;
       if (modal.isOpen) {
+        setIsRemoving(false);
         setIsOpen(true);
       } else {
-        setIsOpen(false);
+        setIsRemoving(true);
+        setTimeout(() => {
+          setIsOpen(false);
+        }, 100);
       }
     });
   }, [modalId]);
@@ -91,6 +102,7 @@ const Modal = ({ trigger, children }: ModalProps) => {
         isOpen={isOpen}
         close={controller.close}
         dimClose={defaultDimClose}
+        isRemoving={isRemoving}
       >
         <ModalProvider value={{ controller }}>
           {isManualChild ? children({ controller }) : children}
@@ -145,8 +157,8 @@ interface SubmitProps
   extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, "onClick"> {
   promise?: () => Promise<any>;
   onClick?: () => void;
-  onSuccess?: (res: any) => void;
-  onFail?: (res: any) => void;
+  onFulfilled?: (res: any) => void;
+  onRejected?: (res: any) => void;
   clear?: boolean;
   width?: number | `${number}${TWidthUnit}`;
 }
@@ -154,8 +166,8 @@ interface SubmitProps
 const ModalSubmit = ({
   promise,
   onClick,
-  onSuccess,
-  onFail,
+  onFulfilled,
+  onRejected,
   children,
   clear = false,
   width,
@@ -176,10 +188,10 @@ const ModalSubmit = ({
       setIsLoading(true);
       onClick?.();
       const res = await promise();
-      onSuccess?.(res);
+      onFulfilled?.(res);
       closeFunc();
     } catch (err) {
-      onFail?.(err);
+      onRejected?.(err);
     } finally {
       setIsLoading(false);
     }

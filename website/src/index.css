@@ -8,3 +8,7 @@
 body {
   font-family: "Pretendard Variable", sans-serif;
 }
+
+::-webkit-scrollbar {
+  display: none;
+}

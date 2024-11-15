@@ -10,6 +10,7 @@ interface ModalPortalProps extends HTMLAttributes<HTMLDivElement> {
   dimClose: boolean;
   close?: () => void;
   style?: CSSProperties;
+  isRemoving: boolean;
 }
 
 export const modalRootId = "wemeet-overlay-root";
@@ -20,7 +21,7 @@ export const ModalPortal = ({
   dimClose,
   close,
   style,
-  className,
+  isRemoving,
   ...props
 }: ModalPortalProps) => {
   const html = document.documentElement;
@@ -42,12 +43,14 @@ export const ModalPortal = ({
     <Fragment>
       <div
         data-modal-dim
+        data-removing={isRemoving}
         className="wemeet-modal-dim"
         onClick={dimClose ? close : undefined}
       />
       <div
         data-modal-container
-        className="wemeet-modal-container"
+        data-removing={isRemoving}
+        className={"wemeet-modal-container"}
         style={{ ...style }}
         {...props}
       >

@@ -21,7 +21,9 @@ class Observer {
     window.addEventListener("keydown", (e: KeyboardEvent) => {
       if (e.key === "Escape" && this.modalIds.length > 0) {
         const lastModalId = this.modalIds[this.modalIds.length - 1];
-        this.close(lastModalId);
+        setTimeout(() => {
+          this.close(lastModalId);
+        }, 100);
       }
     });
     this.initialized = true;

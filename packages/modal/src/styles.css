@@ -9,6 +9,9 @@
   background-color: var(--dim-color);
   animation: dimEnter 0.07s ease-out forwards;
 }
+:where([data-modal-dim][data-removing="true"]) {
+  animation: dimExit 0.08s ease-in-out forwards;
+}
 
 :where([data-modal-container]) {
   --wemeet-modal-font-family: inherit;
@@ -30,6 +33,11 @@
   top: 50%;
   left: 50%;
   animation: modalEnter 0.07s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  transform-origin: center;
+  will-change: transform, opacity;
+}
+:where([data-modal-container][data-removing="true"]) {
+  animation: modalExit 0.08s cubic-bezier(0.4, 0, 0.2, 1) forwards;
   transform-origin: center;
   will-change: transform, opacity;
 }
@@ -123,11 +131,29 @@
     transform: translate(-50%, -50%) scale(1);
   }
 }
+@keyframes modalExit {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.5);
+  }
+}
 @keyframes dimEnter {
   from {
     opacity: 0;
   }
   to {
     opacity: 1;
+  }
+}
+@keyframes dimExit {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
   }
 }
