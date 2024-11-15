@@ -10,7 +10,7 @@
     "dev:modal": "pnpm --filter @wemeet-overlay/modal dev",
     "dev:all": "turbo run dev --parallel --filter=website --filter=@wemeet-overlay/toast --filter=@wemeet-overlay/modal",
     "lint": "turbo run lint",
-    "test": "turbo run test",
+    "test": "pnpm --filter test test:ui",
     "clean": "turbo run clean",
     "publish": "turbo run build && changeset publish"
   },
