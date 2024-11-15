@@ -1,12 +1,14 @@
 {
   "name": "wemeet-overlay",
   "private": true,
+  "packageManager": "pnpm@9.12.1",
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev",
     "dev:website": "pnpm --filter website dev",
     "dev:toast": "pnpm --filter @wemeet-overlay/toast dev",
     "dev:modal": "pnpm --filter @wemeet-overlay/modal dev",
+    "dev:all": "turbo run dev --parallel --filter=website --filter=@wemeet-overlay/toast --filter=@wemeet-overlay/modal",
     "lint": "turbo run lint",
     "test": "turbo run test",
     "clean": "turbo run clean",
