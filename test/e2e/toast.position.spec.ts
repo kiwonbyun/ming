@@ -35,7 +35,6 @@ test.describe("Toast Position option test", () => {
       if (!box) throw new Error("not found box");
       const viewport = page.viewportSize();
       if (!viewport) throw new Error("not found viewport");
-      console.log({ box, viewport });
 
       switch (position) {
         case "top-left":

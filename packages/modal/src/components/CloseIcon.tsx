@@ -9,6 +9,7 @@ function CloseIcon(props: SVGProps<SVGSVGElement>) {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       style={{ cursor: "pointer", ...props.style }}
+      data-modal-header-close
       {...props}
     >
       <path
