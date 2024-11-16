@@ -63,21 +63,17 @@ function ModalTester() {
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
-              paddingTop: "30px",
-              height: "76%",
+              justifyContent: "space-between",
+              height: "150px",
+              paddingBottom: "30px",
             }}
           >
             <WarningIcon />
-            <span
-              style={{ fontSize: "18px", fontWeight: 600, marginTop: "50px" }}
-            >
-              삭제하시겠습니까?
-            </span>
+            <h3>삭제하시겠습니까?</h3>
             <span
               style={{
                 fontSize: "14px",
                 fontWeight: 400,
-                marginTop: "30px",
                 color: "gray",
               }}
             >

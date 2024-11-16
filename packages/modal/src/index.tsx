@@ -129,7 +129,7 @@ const ModalContent = ({
   className,
   style,
   width = 400,
-  height = 300,
+  height,
   title,
 }: WrapperProps) => {
   const controller = useModalController();
@@ -145,7 +145,7 @@ const ModalContent = ({
         data-modal-content
         data-with-header={!!title}
         className={className}
-        style={{ width, height, ...style }}
+        style={{ maxHeight: "95vh", width, height, ...style }}
       >
         {children}
       </div>
