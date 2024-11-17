@@ -12,7 +12,7 @@ function App() {
         overflowY: "auto",
       }}
     >
-      <h1>Wemeet-Overlay</h1>
+      <h1>@b-origin</h1>
       <ToastTester />
       <ModalTester />
     </main>

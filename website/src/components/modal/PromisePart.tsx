@@ -16,7 +16,7 @@ function PromisePart({
   isLayered,
 }: PromisePartProps) {
   const codeText = isLayered
-    ? `import { Modal } from "@wemeet-overlay/modal";
+    ? `import { Modal } from "@b-origin/ming-modal";
           
 <Modal trigger={<Button>모달 열기</Button>}>
     <Modal.Content ${hasTitle ? 'title="테스트 모달"' : ""}>
@@ -40,7 +40,7 @@ function PromisePart({
         </div>
     </Modal.Content>
 </Modal>`
-    : `import { Modal } from "@wemeet-overlay/modal";
+    : `import { Modal } from "@b-origin/ming-modal";
           
 <Modal trigger={<Button>모달 열기</Button>}>
     <Modal.Content ${hasTitle ? 'title="테스트 모달"' : ""}>

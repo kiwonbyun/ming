@@ -29,7 +29,7 @@ function DimPart({ autoClose, setAutoClose }: DimPartProps) {
 import { createRoot } from "react-dom/client";
 import App from "./App.tsx";
 
-import { ModalRoot } from "@wemeet-overlay/modal";
+import { ModalRoot } from "@b-origin/ming-modal";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>

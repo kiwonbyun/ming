@@ -1,8 +1,9 @@
-import { Modal, ModalRoot } from "@wemeet-overlay/modal";
-import Button from "./components/Button";
 import { useState } from "react";
+import { Modal, ModalRoot } from "@kiwonbyun/modal";
+import { toast } from "@kiwonbyun/toast";
+
+import Button from "./components/Button";
 import WarningIcon from "./components/WarningIcon";
-import { toast } from "@wemeet-overlay/toast";
 import DimPart from "./components/modal/DimPart";
 import TitlePart from "./components/modal/TitlePart";
 import PromisePart from "./components/modal/PromisePart";
@@ -35,7 +36,7 @@ function ModalTester() {
       style={{ display: "flex", flexDirection: "column", alignItems: "center" }}
     >
       <ModalRoot dimAutoClose={autoClose} />
-      <h2>@wemeet-overlay/modal</h2>
+      <h2>@b-origin/ming-modal</h2>
 
       <DimPart autoClose={autoClose} setAutoClose={setAutoClose} />
 

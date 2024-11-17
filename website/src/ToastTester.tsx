@@ -1,4 +1,4 @@
-import { Position, toast, Toaster } from "@wemeet-overlay/toast";
+import { Position, toast, Toaster } from "@kiwonbyun/toast";
 import Button from "./components/Button";
 import { useMemo, useState } from "react";
 import DraculaCodeBlock from "./components/DraculaCodeBlock";
@@ -56,7 +56,7 @@ function ToastTester() {
       style={{ display: "flex", flexDirection: "column", alignItems: "center" }}
     >
       <Toaster position={position} offset={offset} />
-      <h2>@wemeet-overlay/toast</h2>
+      <h2>@b-origin/ming-toast</h2>
       <div style={{ display: "flex", gap: "8px", justifyContent: "center" }}>
         <Button
           onClick={() => setPosition("top-right")}
@@ -133,7 +133,7 @@ function ToastTester() {
 import { createRoot } from "react-dom/client";
 import App from "./App.tsx";
 
-import { Toaster } from "@wemeet-overlay/toast";
+import { Toaster } from "@b-origin/ming-toast";
 
 createRoot(document.getElementById("root")!).render(
     <StrictMode>
