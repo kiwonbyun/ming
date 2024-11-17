@@ -1,9 +1,12 @@
 {
   "name": "@wemeet-overlay/modal",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "tsup",
     "dev": "tsup --watch",
@@ -12,5 +15,24 @@
   "peerDependencies": {
     "react": "^18.0.0",
     "react-dom": "^18.0.0"
-  }
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kiwonbyun/wemeet-overlay"
+  },
+  "keywords": [
+    "modal",
+    "react",
+    "overlay",
+    "dialog"
+  ],
+  "author": "kiwonbyun",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kiwonbyun/wemeet-overlay/issues"
+  },
+  "homepage": "https://github.com/kiwonbyun/wemeet-overlay#readme"
 }

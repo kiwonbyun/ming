@@ -12,7 +12,9 @@
     "lint": "turbo run lint",
     "test": "pnpm --filter test test:ui",
     "clean": "turbo run clean",
-    "publish": "turbo run build && changeset publish"
+    "changeset": "changeset",
+    "version": "changeset version",
+    "release": "turbo run build && changeset publish"
   },
   "keywords": [],
   "author": "",

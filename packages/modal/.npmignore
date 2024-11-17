@@ -1,0 +1,25 @@
+# Source
+src/
+
+# Config files
+tsconfig.json
+.eslintrc
+.prettierrc
+
+# Build tools
+turbo.json
+tsup.config.ts
+
+# Git
+.git/
+.gitignore
+
+# IDE
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# Dependencies
+node_modules/
