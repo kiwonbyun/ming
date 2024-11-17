@@ -1,21 +1,21 @@
-# @wemeet-overlay/toast
+# @b-origin/ming-toast
 
 A React toast component library.
 
 ## Installation
 
 ```bash
-npm install @wemeet-overlay/toast
+npm install @b-origin/ming-toast
 # or
-yarn add @wemeet-overlay/toast
+yarn add @b-origin/ming-toast
 # or
-pnpm add @wemeet-overlay/toast
+pnpm add @b-origin/ming-toast
 ```
 
 ## Usage
 
 ```jsx
-import { toast, Toaster } from "@wemeet-overlay/toast";
+import { toast, Toaster } from "@b-origin/ming-toast";
 
 function App() {
   return <Toaster />;

@@ -1,21 +1,21 @@
-# @wemeet-overlay/modal
+# @b-origin/ming-modal
 
 A React modal component library.
 
 ## Installation
 
 ```bash
-npm install @wemeet-overlay/modal
+npm install @b-origin/ming-modal
 # or
-yarn add @wemeet-overlay/modal
+yarn add @b-origin/ming-modal
 # or
-pnpm add @wemeet-overlay/modal
+pnpm add @b-origin/ming-modal
 ```
 
 ## Usage
 
 ```jsx
-import { Modal } from '@wemeet-overlay/modal';
+import { Modal } from '@b-origin/ming-modal';
 
 function App() {
   return (

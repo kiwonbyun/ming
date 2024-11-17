@@ -1,14 +1,14 @@
 {
-  "name": "wemeet-overlay",
+  "name": "ming",
   "private": true,
   "packageManager": "pnpm@9.12.1",
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev",
     "dev:website": "pnpm --filter website dev",
-    "dev:toast": "pnpm --filter @wemeet-overlay/toast dev",
-    "dev:modal": "pnpm --filter @wemeet-overlay/modal dev",
-    "dev:all": "turbo run dev --parallel --filter=website --filter=@wemeet-overlay/toast --filter=@wemeet-overlay/modal",
+    "dev:toast": "pnpm --filter @b-origin/ming-toast dev",
+    "dev:modal": "pnpm --filter @b-origin/ming-modal dev",
+    "dev:all": "turbo run dev --parallel --filter=website --filter=@b-origin/ming-toast --filter=@b-origin/ming-modal",
     "lint": "turbo run lint",
     "test": "pnpm --filter test test:ui",
     "clean": "turbo run clean",
@@ -17,6 +17,9 @@
     "release": "turbo run build && changeset publish"
   },
   "keywords": [],
+  "workspaces": [
+    "packages/*"
+  ],
   "author": "",
   "license": "ISC",
   "devDependencies": {
@@ -26,5 +29,20 @@
     "tsup": "^8.3.5",
     "turbo": "^2.2.3",
     "typescript": "^5.6.3"
-  }
+  },
+  "version": "1.0.0",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "eslint": "^9.14.0",
+    "eslint-plugin-react-hooks": "^5.0.0",
+    "eslint-plugin-react-refresh": "^0.4.14",
+    "eslint-scope": "^8.2.0",
+    "eslint-visitor-keys": "^4.2.0",
+    "prettier": "^2.8.8",
+    "typescript-eslint": "^8.14.0"
+  },
+  "description": ""
 }
