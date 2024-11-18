@@ -11,8 +11,8 @@
     "deploy": "pnpm build && aws s3 sync dist/ s3://b-origin-ming"
   },
   "dependencies": {
-    "@b-origin/ming-modal": "^1.2.3",
-    "@b-origin/ming-toast": "^1.2.4",
+    "@b-origin/ming-modal": "workspace:* || ^1.2.3",
+    "@b-origin/ming-toast": "workspace:* || ^1.2.4",
     "react": "^18.3.1",
     "react-code-blocks": "^0.1.6",
     "react-dom": "^18.3.1"

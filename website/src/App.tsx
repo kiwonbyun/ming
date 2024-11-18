@@ -13,7 +13,7 @@ function App() {
         overflowY: "auto",
       }}
     >
-      <h1>@b-origin</h1>
+      <h1>Ming-ui</h1>
       <ToastTester />
       <ModalTester />
       <div
