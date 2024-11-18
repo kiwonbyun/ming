@@ -2,14 +2,13 @@
 
 body {
   font-family: "Pretendard Variable", sans-serif;
+  --ming-modal-content-padding: 24px;
+  --ming-toast-message-font-size: 16px;
+  --ming-toast-description-font-size: 14px;
+  --ming-toast-message-font-weight: 600;
+  --ming-toast-description-font-weight: 400;
 }
 
 ::-webkit-scrollbar {
   display: none;
-}
-:where([data-ming-toast-item]) {
-  --toast-message-font-size: 18px;
-  --toast-description-font-size: 14px;
-  --toast-message-font-weight: 600;
-  --toast-description-font-weight: 400;
 }

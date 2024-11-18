@@ -142,7 +142,7 @@ const ModalContent = ({
         </header>
       )}
       <div
-        data-modal-content
+        data-ming-modal-content
         data-with-header={!!title}
         className={className}
         style={{ maxHeight: "95vh", width, height, ...style }}

@@ -1,3 +1,11 @@
+:root {
+  --ming-toast-font-family: inherit;
+  --ming-toast-message-font-size: 14px;
+  --ming-toast-message-font-weight: 500;
+  --ming-toast-description-font-size: 12px;
+  --ming-toast-description-font-weight: 400;
+}
+
 :where([data-ming-toast-toaster]) {
   --toast-icon-margin-start: -3px;
   --toast-icon-margin-end: 4px;
@@ -16,7 +24,6 @@
 }
 
 :where([data-ming-toast-toaster]) {
-  --ming-toast-font-family: inherit;
   font-family: var(--ming-toast-font-family);
   position: fixed;
   box-sizing: border-box;
@@ -50,10 +57,7 @@
 
 :where([data-ming-toast-item]) {
   --width-snackbar: 480px;
-  --toast-message-font-size: 14px;
-  --toast-message-font-weight: 500;
-  --toast-description-font-size: 12px;
-  --toast-description-font-weight: 400;
+
   background-color: var(--gray2);
   color: white;
   display: flex;
@@ -82,13 +86,13 @@
   cursor: pointer;
 }
 :where([data-ming-toast-item]) :where([data-title]) {
-  font-size: var(--toast-message-font-size);
-  font-weight: var(--toast-message-font-weight);
+  font-size: var(--ming-toast-message-font-size);
+  font-weight: var(--ming-toast-message-font-weight);
 }
 
 :where([data-ming-toast-item]) :where([data-description]) {
-  font-size: var(--toast-description-font-size);
-  font-weight: var(--toast-description-font-weight);
+  font-size: var(--ming-toast-description-font-size);
+  font-weight: var(--ming-toast-description-font-weight);
   color: var(--gray3);
 }
 
@@ -123,7 +127,7 @@
   justify-content: center;
   align-items: center;
   border-radius: 8px;
-  font-size: var(--toast-message-font-size);
+  font-size: var(--ming-toast-message-font-size);
   letter-spacing: -2%;
   min-width: 328px;
 }

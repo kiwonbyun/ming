@@ -25,7 +25,7 @@ export const ModalPortal = ({
   isRemoving,
   ...props
 }: ModalPortalProps) => {
-  const html = document.documentElement;
+  const html = useRef<HTMLElement | null>(null);
   const modals = ModalState.getModal();
   const modalRef = useRef<HTMLDivElement>(null);
 
@@ -83,17 +83,26 @@ export const ModalPortal = ({
   }, [isOpen]);
 
   useEffect(() => {
-    if (modals.length && html) {
-      html.style.setProperty("overflow", "hidden");
+    if (!html.current) return;
+    if (modals.length) {
+      html.current.style.setProperty("overflow", "hidden");
     } else {
-      html.style.setProperty("overflow", "auto");
+      html.current.style.setProperty("overflow", "auto");
     }
     return () => {
-      html.style.setProperty("overflow", "auto");
+      if (!html.current) return;
+      html.current.style.setProperty("overflow", "auto");
     };
   }, [isOpen, modals]);
 
+  useEffect(() => {
+    html.current = document.documentElement;
+  }, []);
+
   if (!isOpen) return null;
+
+  const portalElement = document.getElementById(modalRootId);
+  if (!portalElement) return null;
 
   return createPortal(
     <Fragment>
@@ -114,6 +123,6 @@ export const ModalPortal = ({
         {children}
       </div>
     </Fragment>,
-    document.getElementById(modalRootId) as HTMLElement
+    portalElement
   );
 };

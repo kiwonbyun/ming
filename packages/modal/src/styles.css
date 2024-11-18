@@ -1,12 +1,17 @@
+:root {
+  --ming-modal-font-family: inherit;
+  --ming-modal-content-padding: 16px;
+  --ming-dim-color: rgba(0, 0, 0, 0.5);
+}
+
 :where([data-modal-dim]) {
-  --dim-color: rgba(0, 0, 0, 0.5);
   position: fixed;
   width: 100vw;
   height: 100vh;
   z-index: 20;
   top: 0;
   left: 0;
-  background-color: var(--dim-color);
+  background-color: var(--ming-dim-color);
   animation: dimEnter 0.07s ease-out forwards;
 }
 :where([data-modal-dim][data-removing="true"]) {
@@ -14,7 +19,6 @@
 }
 
 :where([data-modal-container]) {
-  --ming-modal-font-family: inherit;
   font-family: var(--ming-modal-font-family);
   --gray1: #d5d8e1;
   --gray2: #eceef4;
@@ -36,21 +40,23 @@
   transform-origin: center;
   will-change: transform, opacity;
 }
+
 :where([data-modal-container][data-removing="true"]) {
   animation: modalExit 0.08s cubic-bezier(0.4, 0, 0.2, 1) forwards;
   transform-origin: center;
   will-change: transform, opacity;
 }
 
-:where([data-modal-content]) {
-  padding: 24px;
+:where([data-ming-modal-content]) {
+  padding: var(--ming-modal-content-padding);
   border-radius: 6px;
   background-color: white;
   box-shadow: 10px 10px 20px 0px rgba(0, 0, 0, 0.05);
   border: 1px solid var(--gray1);
   overflow-y: auto;
 }
-:where([data-modal-content][data-with-header="true"]) {
+
+:where([data-ming-modal-content][data-with-header="true"]) {
   border-top-right-radius: 0px;
   border-top-left-radius: 0px;
   border-top: none;
@@ -69,9 +75,11 @@
   border-top-left-radius: 6px;
   padding: 0px 16px;
   font-size: 16px;
-
   letter-spacing: -2%;
   font-weight: 400;
+}
+:where([data-modal-header-close]) {
+  cursor: pointer;
 }
 
 :where([data-button]) {
@@ -87,6 +95,7 @@
   box-sizing: border-box;
   line-height: 28px;
   height: 40px;
+  cursor: pointer;
 }
 
 :where([data-modal-close]) {
