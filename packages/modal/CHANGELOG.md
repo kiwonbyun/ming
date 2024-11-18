@@ -1,5 +1,17 @@
 # @b-origin/ming-modal
 
+## 1.2.3
+
+### Patch Changes
+
+- test
+
+## 1.2.2
+
+### Patch Changes
+
+- build
+
 ## 1.2.1
 
 ### Patch Changes

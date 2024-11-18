@@ -11,17 +11,3 @@ yarn add @b-origin/ming-toast
 # or
 pnpm add @b-origin/ming-toast
 ```
-
-## Usage
-
-```jsx
-import { toast, Toaster } from "@b-origin/ming-toast";
-
-function App() {
-  return <Toaster />;
-}
-```
-
-## License
-
-MIT

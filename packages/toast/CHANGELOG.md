@@ -1,5 +1,17 @@
 # @b-origin/ming-toast
 
+## 1.2.4
+
+### Patch Changes
+
+- test
+
+## 1.2.3
+
+### Patch Changes
+
+- build
+
 ## 1.2.2
 
 ### Patch Changes

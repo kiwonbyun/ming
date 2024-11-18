@@ -78,6 +78,12 @@ importers:
 
   website:
     dependencies:
+      '@b-origin/ming-modal':
+        specifier: ^1.2.3
+        version: 1.2.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@b-origin/ming-toast':
+        specifier: ^1.2.4
+        version: 1.2.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -88,12 +94,6 @@ importers:
         specifier: ^18.3.1
         version: 18.3.1(react@18.3.1)
     devDependencies:
-      '@b-origin/ming-modal':
-        specifier: workspace:*
-        version: link:../packages/modal
-      '@b-origin/ming-toast':
-        specifier: workspace:*
-        version: link:../packages/toast
       '@eslint/js':
         specifier: ^9.13.0
         version: 9.14.0
@@ -133,6 +133,18 @@ packages:
   '@ampproject/remapping@2.3.0':
     resolution: {integrity: sha512-30iZtAPgz+LTIYoeivqYo853f02jBYSd5uGnGpkFV0M3xOt9aN73erkgYAmZU43x4VfqcnLxW9Kpg3R5LC4YYw==}
     engines: {node: '>=6.0.0'}
+
+  '@b-origin/ming-modal@1.2.3':
+    resolution: {integrity: sha512-kRsc5b9mpB8DQ90wXoSlTihQ1+w8hPeC8DMBkSa22eiZ0IUtaKqO+snPYqTHrAwdD7evwEMzRrqEHG5CzVM8Zw==}
+    peerDependencies:
+      react: ^18.0.0
+      react-dom: ^18.0.0
+
+  '@b-origin/ming-toast@1.2.4':
+    resolution: {integrity: sha512-PZd4MO3BuS2HD57A1S5T8HtoUhGmwsOKkkfQmspau0Dw0VTL0YN/LRbxB8C1JVTRALYXIL261wKvcxG3wJoaAg==}
+    peerDependencies:
+      react: ^18.0.0
+      react-dom: ^18.0.0
 
   '@babel/code-frame@7.26.2':
     resolution: {integrity: sha512-RJlIHRueQgwWitWgF8OdFYGZX328Ax5BCemNGlqHfplnRT9ESi8JkFlvaVYbS+UubVY6dpv87Fs2u5M29iNFVQ==}
@@ -1991,6 +2003,16 @@ snapshots:
     dependencies:
       '@jridgewell/gen-mapping': 0.3.5
       '@jridgewell/trace-mapping': 0.3.25
+
+  '@b-origin/ming-modal@1.2.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+    dependencies:
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
+
+  '@b-origin/ming-toast@1.2.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+    dependencies:
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
 
   '@babel/code-frame@7.26.2':
     dependencies:
