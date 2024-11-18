@@ -56,7 +56,7 @@
 }
 
 :where([data-ming-toast-item]) {
-  --width-snackbar: 480px;
+  --width-snackbar: 400px;
 
   background-color: var(--gray2);
   color: white;
@@ -100,25 +100,25 @@
   min-width: var(--width-snackbar);
   border-left: 4px solid var(--red1);
   gap: 8px;
-  padding: 12px 20px 12px 10px;
+  padding: 12px 30px 12px 10px;
 }
 :where([data-ming-toast-item][data-type="info"]) {
   min-width: var(--width-snackbar);
   border-left: 4px solid var(--gray1);
   gap: 8px;
-  padding: 12px 20px 12px 10px;
+  padding: 12px 30px 12px 10px;
 }
 :where([data-ming-toast-item][data-type="warning"]) {
   min-width: var(--width-snackbar);
   border-left: 4px solid var(--yellow1);
   gap: 8px;
-  padding: 12px 20px 12px 10px;
+  padding: 12px 30px 12px 10px;
 }
 :where([data-ming-toast-item][data-type="success"]) {
   min-width: var(--width-snackbar);
   border-left: 4px solid var(--green1);
   gap: 8px;
-  padding: 12px 20px 12px 10px;
+  padding: 12px 30px 12px 10px;
 }
 
 :where([data-ming-toast-item][data-type="message"]) {

@@ -86,7 +86,9 @@ function ToastItem({ toast, expanded, removeToast }: ToastItemProps) {
       ) : (
         <div data-toast-content>
           <span data-title>{toast.message}</span>
-          <span data-description>{toast.description}</span>
+          {!!toast.description && (
+            <span data-description>{toast.description}</span>
+          )}
         </div>
       )}
 

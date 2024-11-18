@@ -13,7 +13,9 @@ function ToastTester() {
   const openToast = () => {
     if (toastType === "message") toast("정상적으로 처리되었습니다.");
     if (toastType === "success")
-      toast.success("성공!", { description: "게시물이 생성되었습니다." });
+      toast.success("성공!", {
+        description: "게시물이 생성되었습니다.",
+      });
     if (toastType === "error")
       toast.error("실패!", { description: "입력값을 확인해주세요." });
     if (toastType === "warning")
