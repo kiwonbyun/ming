@@ -1,6 +1,6 @@
 {
   "name": "ming-ui",
-  "private": true,
+  "private": false,
   "packageManager": "pnpm@9.12.1",
   "scripts": {
     "build": "turbo run build",
@@ -12,9 +12,7 @@
     "lint": "turbo run lint",
     "test": "pnpm --filter test test:ui",
     "clean": "turbo run clean",
-    "changeset": "changeset",
-    "version": "changeset version",
-    "publish": "turbo run build --force && changeset publish"
+    "changeset": "changeset"
   },
   "keywords": [],
   "workspaces": [

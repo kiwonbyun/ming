@@ -80,7 +80,7 @@ function ToastItem({ toast, expanded, removeToast }: ToastItemProps) {
       className={isRemoving ? "removing" : ""}
       data-type={toast.type}
     >
-      <div>{toast?.icon ?? getIcon(toast.type)}</div>
+      {toast?.icon ?? getIcon(toast.type)}
       {isDefaultToast ? (
         <span data-title>{toast.message}</span>
       ) : (

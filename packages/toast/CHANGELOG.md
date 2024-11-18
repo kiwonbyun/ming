@@ -1,5 +1,11 @@
 # @b-origin/ming-toast
 
+## 1.2.2
+
+### Patch Changes
+
+- style
+
 ## 1.2.1
 
 ### Patch Changes
