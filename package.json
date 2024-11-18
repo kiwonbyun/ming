@@ -14,7 +14,7 @@
     "clean": "turbo run clean",
     "changeset": "changeset",
     "version": "changeset version",
-    "release": "turbo run build && changeset publish"
+    "publish": "turbo run build --force && changeset publish"
   },
   "keywords": [],
   "workspaces": [
