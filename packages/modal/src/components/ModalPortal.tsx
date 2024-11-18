@@ -14,7 +14,7 @@ interface ModalPortalProps extends HTMLAttributes<HTMLDivElement> {
   isRemoving: boolean;
 }
 
-export const modalRootId = "wemeet-overlay-root";
+export const modalRootId = "ming-overlay-root";
 
 export const ModalPortal = ({
   isOpen,
@@ -100,14 +100,14 @@ export const ModalPortal = ({
       <div
         data-modal-dim
         data-removing={isRemoving}
-        className="wemeet-modal-dim"
+        className="ming-modal-dim"
         onClick={dimClose ? close : undefined}
       />
       <div
         ref={modalRef}
         data-modal-container
         data-removing={isRemoving}
-        className={"wemeet-modal-container"}
+        className={"ming-modal-container"}
         style={{ ...style }}
         {...props}
       >

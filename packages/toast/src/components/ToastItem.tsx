@@ -76,7 +76,7 @@ function ToastItem({ toast, expanded, removeToast }: ToastItemProps) {
 
   return (
     <li
-      data-wemeet-toast-item
+      data-ming-toast-item
       className={isRemoving ? "removing" : ""}
       data-type={toast.type}
     >

@@ -78,10 +78,10 @@ importers:
 
   website:
     dependencies:
-      '@kiwonbyun/modal':
+      '@b-origin/ming-modal':
         specifier: ^1.0.0
         version: 1.0.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@kiwonbyun/toast':
+      '@b-origin/ming-toast':
         specifier: ^1.0.0
         version: 1.0.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react:
@@ -133,6 +133,18 @@ packages:
   '@ampproject/remapping@2.3.0':
     resolution: {integrity: sha512-30iZtAPgz+LTIYoeivqYo853f02jBYSd5uGnGpkFV0M3xOt9aN73erkgYAmZU43x4VfqcnLxW9Kpg3R5LC4YYw==}
     engines: {node: '>=6.0.0'}
+
+  '@b-origin/ming-modal@1.0.0':
+    resolution: {integrity: sha512-FnJ4hael9pjaedmJvBcAsrgB8QsJqpaQUyqPKcERSg1kTua9nrMj98IvgXLH/CMiTgom8hZlE2VRPVrMf5Imyw==}
+    peerDependencies:
+      react: ^18.0.0
+      react-dom: ^18.0.0
+
+  '@b-origin/ming-toast@1.0.0':
+    resolution: {integrity: sha512-aRBTx0wtz5A3QDv46KDX+qnmJcg4BaPpbsIIsNey4edHLC1TSAvnhJK9G6c9026kUqaQaxEAI8YlCsjjny/NdA==}
+    peerDependencies:
+      react: ^18.0.0
+      react-dom: ^18.0.0
 
   '@babel/code-frame@7.26.2':
     resolution: {integrity: sha512-RJlIHRueQgwWitWgF8OdFYGZX328Ax5BCemNGlqHfplnRT9ESi8JkFlvaVYbS+UubVY6dpv87Fs2u5M29iNFVQ==}
@@ -638,18 +650,6 @@ packages:
 
   '@jridgewell/trace-mapping@0.3.25':
     resolution: {integrity: sha512-vNk6aEwybGtawWmy/PzwnGDOjCkLWSD2wqvjGGAgOAwCGWySYXfYoxt00IJkTF+8Lb57DwOb3Aa0o9CApepiYQ==}
-
-  '@kiwonbyun/modal@1.0.0':
-    resolution: {integrity: sha512-F7YtanZsq8/n4gIBgxkFPxzM4fMOY6zxJ41ecADjAg1dN8QVjyXpm02NA9tKra5Nvfxed0kCrn1KQoRLe9rNWQ==}
-    peerDependencies:
-      react: ^18.0.0
-      react-dom: ^18.0.0
-
-  '@kiwonbyun/toast@1.0.0':
-    resolution: {integrity: sha512-b6+qbenFNQHzeZ5nBgCNzBWJqM2lRTXmzPcLMtRt1p6zGPsdAPNj2WW7zSZC6j8x5RcWRsMGSotx+/QjXGp/Sg==}
-    peerDependencies:
-      react: ^18.0.0
-      react-dom: ^18.0.0
 
   '@manypkg/find-root@1.1.0':
     resolution: {integrity: sha512-mki5uBvhHzO8kYYix/WRy2WX8S3B5wdVSc9D6KcU5lQNglP2yt58/VfLuAK49glRXChosY8ap2oJ1qgma3GUVA==}
@@ -2004,6 +2004,16 @@ snapshots:
       '@jridgewell/gen-mapping': 0.3.5
       '@jridgewell/trace-mapping': 0.3.25
 
+  '@b-origin/ming-modal@1.0.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+    dependencies:
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
+
+  '@b-origin/ming-toast@1.0.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+    dependencies:
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
+
   '@babel/code-frame@7.26.2':
     dependencies:
       '@babel/helper-validator-identifier': 7.25.9
@@ -2486,16 +2496,6 @@ snapshots:
     dependencies:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.0
-
-  '@kiwonbyun/modal@1.0.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
-    dependencies:
-      react: 18.3.1
-      react-dom: 18.3.1(react@18.3.1)
-
-  '@kiwonbyun/toast@1.0.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
-    dependencies:
-      react: 18.3.1
-      react-dom: 18.3.1(react@18.3.1)
 
   '@manypkg/find-root@1.1.0':
     dependencies:

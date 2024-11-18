@@ -16,7 +16,7 @@ test.describe("Toast type test", () => {
       });
       await toastRunButton.click();
 
-      const toast = page.locator("[data-wemeet-toast-item]");
+      const toast = page.locator("[data-ming-toast-item]");
 
       await expect(toast).toBeInViewport();
       await expect(toast).toHaveAttribute("data-type", type);

@@ -1,4 +1,4 @@
-import { Position, toast, Toaster } from "@kiwonbyun/toast";
+import { Position, toast, Toaster } from "@b-origin/ming-toast";
 import Button from "./components/Button";
 import { useMemo, useState } from "react";
 import DraculaCodeBlock from "./components/DraculaCodeBlock";

@@ -14,8 +14,8 @@
 }
 
 :where([data-modal-container]) {
-  --wemeet-modal-font-family: inherit;
-  font-family: var(--wemeet-modal-font-family);
+  --ming-modal-font-family: inherit;
+  font-family: var(--ming-modal-font-family);
   --gray1: #d5d8e1;
   --gray2: #eceef4;
   --gray3: #737783;

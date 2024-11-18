@@ -14,7 +14,7 @@ test.describe("Modal.Submit Component test", () => {
     expect(modal).not.toBeInViewport();
 
     const successToast = page.locator(
-      '[data-wemeet-toast-item][data-type="success"]'
+      '[data-ming-toast-item][data-type="success"]'
     );
     expect(successToast).toBeInViewport();
   });
@@ -31,7 +31,7 @@ test.describe("Modal.Submit Component test", () => {
     expect(modal).toBeInViewport();
 
     const errorToast = page.locator(
-      '[data-wemeet-toast-item][data-type="error"]'
+      '[data-ming-toast-item][data-type="error"]'
     );
     expect(errorToast).toBeInViewport();
   });

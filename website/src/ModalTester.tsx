@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { Modal, ModalRoot } from "@kiwonbyun/modal";
-import { toast } from "@kiwonbyun/toast";
+import { Modal, ModalRoot } from "@b-origin/ming-modal";
+import { toast } from "@b-origin/ming-toast";
 
 import Button from "./components/Button";
 import WarningIcon from "./components/WarningIcon";

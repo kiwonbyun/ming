@@ -1,4 +1,4 @@
-:where([data-wemeet-toast-toaster]) {
+:where([data-ming-toast-toaster]) {
   --toaster-width: 480px;
   --toast-icon-margin-start: -3px;
   --toast-icon-margin-end: 4px;
@@ -25,9 +25,9 @@
   --height-snackbar: 62px;
 }
 
-:where([data-wemeet-toast-toaster]) {
-  --wemeet-toast-font-family: inherit;
-  font-family: var(--wemeet-toast-font-family);
+:where([data-ming-toast-toaster]) {
+  --ming-toast-font-family: inherit;
+  font-family: var(--ming-toast-font-family);
   position: fixed;
   box-sizing: border-box;
   padding: 0;
@@ -37,28 +37,28 @@
   z-index: 999999999;
 }
 
-:where([data-wemeet-toast-toaster][data-x-position="right"]) {
+:where([data-ming-toast-toaster][data-x-position="right"]) {
   right: var(--offset);
 }
 
-:where([data-wemeet-toast-toaster][data-x-position="left"]) {
+:where([data-ming-toast-toaster][data-x-position="left"]) {
   left: var(--offset);
 }
 
-:where([data-wemeet-toast-toaster][data-x-position="center"]) {
+:where([data-ming-toast-toaster][data-x-position="center"]) {
   left: 50%;
   transform: translateX(-50%);
 }
 
-:where([data-wemeet-toast-toaster][data-y-position="top"]) {
+:where([data-ming-toast-toaster][data-y-position="top"]) {
   top: var(--offset);
 }
 
-:where([data-wemeet-toast-toaster][data-y-position="bottom"]) {
+:where([data-ming-toast-toaster][data-y-position="bottom"]) {
   bottom: var(--offset);
 }
 
-:where([data-wemeet-toast-item]) {
+:where([data-ming-toast-item]) {
   background-color: var(--gray2);
   color: white;
   display: flex;
@@ -69,60 +69,60 @@
   animation: toastEnter 0.07s ease-out forwards;
 }
 
-:where([data-wemeet-toast-item].removing) {
+:where([data-ming-toast-item].removing) {
   animation: toastExit 0.1s ease-out forwards;
 }
 
-:where([data-wemeet-toast-item]) :where([data-toast-content]) {
+:where([data-ming-toast-item]) :where([data-toast-content]) {
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: 6px;
 }
 
-:where([data-wemeet-toast-item]) :where([data-delete-button]) {
+:where([data-ming-toast-item]) :where([data-delete-button]) {
   position: absolute;
   right: 8px;
   top: 8px;
   cursor: pointer;
 }
-:where([data-wemeet-toast-item]) :where([data-title]) {
+:where([data-ming-toast-item]) :where([data-title]) {
   font-size: 14px;
   font-weight: 500;
 }
 
-:where([data-wemeet-toast-item]) :where([data-description]) {
+:where([data-ming-toast-item]) :where([data-description]) {
   font-size: 12px;
   font-weight: 400px;
   color: var(--gray3);
 }
 
-:where([data-wemeet-toast-item][data-type="error"]) {
+:where([data-ming-toast-item][data-type="error"]) {
   min-width: var(--width-snackbar);
   border-left: 4px solid var(--red1);
   gap: 8px;
   height: var(--height-snackbar);
 }
-:where([data-wemeet-toast-item][data-type="info"]) {
+:where([data-ming-toast-item][data-type="info"]) {
   min-width: var(--width-snackbar);
   border-left: 4px solid var(--gray1);
   gap: 8px;
   height: var(--height-snackbar);
 }
-:where([data-wemeet-toast-item][data-type="warning"]) {
+:where([data-ming-toast-item][data-type="warning"]) {
   min-width: var(--width-snackbar);
   border-left: 4px solid var(--yellow1);
   gap: 8px;
   height: var(--height-snackbar);
 }
-:where([data-wemeet-toast-item][data-type="success"]) {
+:where([data-ming-toast-item][data-type="success"]) {
   min-width: var(--width-snackbar);
   border-left: 4px solid var(--green1);
   gap: 8px;
   height: var(--height-snackbar);
 }
 
-:where([data-wemeet-toast-item][data-type="message"]) {
+:where([data-ming-toast-item][data-type="message"]) {
   background-color: var(--black);
   display: flex;
   justify-content: center;
@@ -134,17 +134,16 @@
   min-width: 328px;
 }
 
-:where([data-wemeet-toast-item][data-type="message"]) :where([data-title]) {
+:where([data-ming-toast-item][data-type="message"]) :where([data-title]) {
   height: 25px;
   display: flex;
   align-items: center;
 }
-:where([data-wemeet-toast-item][data-type="message"])
+:where([data-ming-toast-item][data-type="message"])
   :where([data-delete-button]) {
   display: none;
 }
-:where([data-wemeet-toast-item][data-type="message"])
-  :where([data-toast-icon]) {
+:where([data-ming-toast-item][data-type="message"]) :where([data-toast-icon]) {
   display: none;
 }
 @keyframes toastEnter {

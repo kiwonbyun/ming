@@ -42,7 +42,7 @@ const Toaster = (props: ToasterProps) => {
   }, [toasts]);
   return (
     <ol
-      data-wemeet-toast-toaster
+      data-ming-toast-toaster
       data-x-position={x}
       data-y-position={y}
       onMouseEnter={() => setExpanded(true)}

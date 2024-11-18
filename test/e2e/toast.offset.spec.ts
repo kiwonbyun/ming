@@ -19,7 +19,7 @@ test.describe("Toast offset option test", () => {
       await toastRunButton.click();
 
       // 토스트 컨테이너 요소 찾기
-      const toast = page.locator("[data-wemeet-toast-toaster]");
+      const toast = page.locator("[data-ming-toast-toaster]");
 
       // 토스트가 보이는지 확인
       await expect(toast).toBeVisible();
