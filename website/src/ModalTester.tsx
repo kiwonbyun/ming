@@ -8,7 +8,6 @@ import DimPart from "./components/modal/DimPart";
 import TitlePart from "./components/modal/TitlePart";
 import PromisePart from "./components/modal/PromisePart";
 
-import ControlCasePart from "./components/modal/ControlCasePart";
 import LayerPart from "./components/modal/LayerPart";
 
 function ModalTester() {
@@ -134,6 +133,9 @@ function ModalTester() {
               </Modal>
             ) : (
               <Modal.Submit
+                onClick={(e) => {
+                  console.log(e);
+                }}
                 promise={promiseFunc}
                 onFulfilled={(res: string) => {
                   toast.success("성공", { description: res });
@@ -150,8 +152,6 @@ function ModalTester() {
           </div>
         </Modal.Content>
       </Modal>
-
-      <ControlCasePart />
     </div>
   );
 }

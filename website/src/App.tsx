@@ -1,6 +1,8 @@
 import ToastTester from "./ToastTester";
 import ModalTester from "./ModalTester";
-import DraculaCodeBlock from "./components/DraculaCodeBlock";
+import ControlCasePart from "./components/modal/ControlCasePart";
+import CustomStyleBlock from "./components/CustomStyleBlock";
+import AsChildButton from "./components/AsChildButton";
 
 function App() {
   return (
@@ -16,29 +18,9 @@ function App() {
       <h1>Ming-ui</h1>
       <ToastTester />
       <ModalTester />
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-        }}
-      >
-        <h2>Custom Style</h2>
-        <DraculaCodeBlock
-          text={`// Global Style
-body {
-    --ming-toast-font-family: inherit; 
-    --ming-toast-message-font-size: 14px; // toast 메인 텍스트 크기
-    --ming-toast-message-font-weight: 500; // toast 메인 텍스트 두께
-    --ming-toast-description-font-size: 12px; // toast 서브 텍스트 크기
-    --ming-toast-description-font-weight: 400; // toast 서브 텍스트 두께
-
-    --ming-modal-font-family: inherit; 
-    --ming-modal-content-padding: 16px; // Modal.Content 컴포넌트 내부 padding
-    --ming-dim-color: rgba(0, 0, 0, 0.5); // modal dim 색상
-}`}
-        />
-      </div>
+      <ControlCasePart />
+      <AsChildButton />
+      <CustomStyleBlock />
     </main>
   );
 }

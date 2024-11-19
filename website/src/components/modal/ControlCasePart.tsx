@@ -11,7 +11,7 @@ function ControlCasePart() {
       }}
     >
       <div style={{ flex: 1 }}>
-        <h3>auto control</h3>
+        <h2>auto control</h2>
         <DraculaCodeBlock
           text={`<Modal trigger={<button>모달 열기</button>}>
     <Modal.Content>
@@ -31,7 +31,7 @@ function ControlCasePart() {
         />
       </div>
       <div style={{ flex: 1 }}>
-        <h3>manual control</h3>
+        <h2>manual control</h2>
         <DraculaCodeBlock
           text={`<Modal trigger={<button>모달 열기</button>}>
         {({ controller }) => (
