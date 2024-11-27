@@ -1,5 +1,11 @@
 # @b-origin/ming-modal
 
+## 1.2.4
+
+### Patch Changes
+
+- change Modal.Submit props name
+
 ## 1.2.3
 
 ### Patch Changes

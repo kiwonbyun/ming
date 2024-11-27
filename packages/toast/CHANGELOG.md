@@ -1,5 +1,11 @@
 # @b-origin/ming-toast
 
+## 1.2.5
+
+### Patch Changes
+
+- change Modal.Submit props name
+
 ## 1.2.4
 
 ### Patch Changes
