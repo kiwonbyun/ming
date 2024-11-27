@@ -1,5 +1,17 @@
 # @b-origin/ming-modal
 
+## 1.2.6
+
+### Patch Changes
+
+- Modal props extends react div element
+
+## 1.2.5
+
+### Patch Changes
+
+- Modal props extends Div Element
+
 ## 1.2.4
 
 ### Patch Changes
