@@ -1,7 +1,12 @@
 "use client";
 
 import { cloneElement, useEffect, useId, useState } from "react";
-import type { MouseEvent, ReactElement, ReactNode } from "react";
+import type {
+  HTMLAttributes,
+  MouseEvent,
+  ReactElement,
+  ReactNode,
+} from "react";
 import { ModalState } from "./state";
 import { ModalPortal, modalRootId } from "./components/ModalPortal";
 import { ModalProvider } from "./context";
@@ -16,7 +21,7 @@ export interface ModalController {
   isTop?: boolean;
 }
 
-interface ModalProps {
+interface ModalProps extends Omit<HTMLAttributes<HTMLDivElement>, "children"> {
   trigger: ReactNode;
   children: ((props: { controller: ModalController }) => ReactNode) | ReactNode;
 }
@@ -28,7 +33,7 @@ const ModalRoot = ({ dimAutoClose = true }) => {
   return <div id={modalRootId}></div>;
 };
 
-const Modal = ({ trigger, children }: ModalProps) => {
+const Modal = ({ trigger, children, ...props }: ModalProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isRemoving, setIsRemoving] = useState(false);
   const modalId = useId();
@@ -99,6 +104,7 @@ const Modal = ({ trigger, children }: ModalProps) => {
         close={controller.close}
         dimClose={defaultDimClose}
         isRemoving={isRemoving}
+        {...props}
       >
         <ModalProvider value={{ controller }}>
           {isManualChild ? children({ controller }) : children}
