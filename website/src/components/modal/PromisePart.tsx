@@ -29,9 +29,9 @@ function PromisePart({
                   <Modal.Close>취소</Modal.Close>
                   <Modal.Submit
                     clear
-                    promise={${isSuccess ? "successApiReq" : "failApiReq"}}
-                    onFulfilled={(res: string) => toast.success("성공", { description: res })}}
-                    onRejected={(err: string) => toast.error("실패", { description: err })}}
+                    action={${isSuccess ? "successApiReq" : "failApiReq"}}
+                    onSuccess={(res: string) => toast.success("성공", { description: res })}}
+                    onError={(err: string) => toast.error("실패", { description: err })}}
                   >
                     삭제
                   </Modal.Submit>

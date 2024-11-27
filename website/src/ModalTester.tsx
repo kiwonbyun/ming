@@ -116,11 +116,11 @@ function ModalTester() {
                     <Modal.Close>취소</Modal.Close>
                     <Modal.Submit
                       clear
-                      promise={promiseFunc}
-                      onFulfilled={(res: string) => {
+                      action={promiseFunc}
+                      onSuccess={(res: string) => {
                         toast.success("성공", { description: res });
                       }}
-                      onRejected={(err: string) => {
+                      onError={(err: string) => {
                         toast.error("실패", {
                           description: err,
                         });
@@ -136,11 +136,11 @@ function ModalTester() {
                 onClick={(e) => {
                   console.log(e);
                 }}
-                promise={promiseFunc}
-                onFulfilled={(res: string) => {
+                action={promiseFunc}
+                onSuccess={(res: string) => {
                   toast.success("성공", { description: res });
                 }}
-                onRejected={(err: string) => {
+                onError={(err: string) => {
                   toast.error("실패", {
                     description: err,
                   });

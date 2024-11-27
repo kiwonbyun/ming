@@ -19,9 +19,9 @@ function ControlCasePart() {
           <Modal.Close>닫기</Modal.Close>
           <Modal.Submit
             onClick={() => console.log("동기적으로 호출")}
-            promise={promise} // promise를 사용하지 않으면 동기적으로 동작함.
-            onFulfilled={() => console.log("비동기 요청 성공시 호출")}
-            onRejected={()=>console.log('비동기 요청 실패시 호출')}
+            action={promise} // promise를 사용하지 않으면 동기적으로 동작함.
+            onSuccess={() => console.log("비동기 요청 성공시 호출")}
+            onError={()=>console.log('비동기 요청 실패시 호출')}
           >
             확인
           </Modal.Submit>

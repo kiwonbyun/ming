@@ -26,9 +26,9 @@ function AsChildButton() {
         text={`<Modal.Submit
     asChild 
     onClick={e => console.log(e) }
-    promise={promiseFunc}
-    onFulfilled={(res: string) => console.log(res) }
-    onRejected={(err: string) => console.log(err) };
+    action={promiseFunc}
+    onSuccess={(res: string) => console.log(res) }
+    onError={(err: string) => console.log(err) };
 >     
     <button className={your style...}>확인</button> // custom element to replace default styled button
 </Modal.Close>
