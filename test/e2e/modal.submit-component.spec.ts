@@ -1,7 +1,7 @@
 import test, { expect } from "@playwright/test";
 
 test.describe("Modal.Submit Component test", () => {
-  test("promise props 비동기 요청 성공시 onFulfuiled 핸들러 호출되고 모달 닫힘.", async ({
+  test("promise props 비동기 요청 성공시 onSuccess 핸들러 호출되고 모달 닫힘.", async ({
     page,
   }) => {
     await page.goto("/");
@@ -18,7 +18,7 @@ test.describe("Modal.Submit Component test", () => {
     );
     expect(successToast).toBeInViewport();
   });
-  test("promise props 비동기 요청 실패시 onReject 햄들러 호출되고 모달 안 닫힘.", async ({
+  test("promise props 비동기 요청 실패시 onError 핸들러 호출되고 모달 안 닫힘.", async ({
     page,
   }) => {
     await page.goto("/");

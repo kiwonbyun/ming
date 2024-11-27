@@ -19,20 +19,20 @@ type WidthType =
 
 interface SubmitProps
   extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, "onClick"> {
-  promise?: () => Promise<any>;
+  action?: () => Promise<any>;
   onClick?: (e: MouseEvent<HTMLButtonElement>) => void;
-  onFulfilled?: (res: any) => void;
-  onRejected?: (res: any) => void;
+  onSuccess?: (res: any) => void;
+  onError?: (res: any) => void;
   clear?: boolean;
   width?: WidthType;
   asChild?: boolean;
 }
 
 function ModalSubmit({
-  promise,
+  action,
   onClick,
-  onFulfilled,
-  onRejected,
+  onSuccess,
+  onError,
   children,
   clear = false,
   width,
@@ -44,7 +44,7 @@ function ModalSubmit({
   const closeFunc = clear ? controller.clear : controller.close;
 
   const handleClick = async (e: MouseEvent<HTMLButtonElement>) => {
-    if (!promise) {
+    if (!action) {
       onClick?.(e);
       closeFunc();
       return;
@@ -53,11 +53,11 @@ function ModalSubmit({
     try {
       setIsLoading(true);
       onClick?.(e);
-      const res = await promise();
-      onFulfilled?.(res);
+      const res = await action();
+      onSuccess?.(res);
       closeFunc();
     } catch (err) {
-      onRejected?.(err);
+      onError?.(err);
     } finally {
       setIsLoading(false);
     }
