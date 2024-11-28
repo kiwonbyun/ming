@@ -1,5 +1,11 @@
 # @b-origin/ming-toast
 
+## 1.2.6
+
+### Patch Changes
+
+- support custom toast-bg-color css variable
+
 ## 1.2.5
 
 ### Patch Changes
