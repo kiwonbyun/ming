@@ -4,6 +4,7 @@
   --ming-toast-message-font-weight: 500;
   --ming-toast-description-font-size: 12px;
   --ming-toast-description-font-weight: 400;
+  --ming-toast-bg-color: rgba(0, 0, 0, 0.8);
 }
 
 :where([data-ming-toast-toaster]) {
@@ -15,7 +16,6 @@
   --gray1: #bdc2ce;
   --gray2: #1c1d23;
   --gray3: #d5d8e1;
-  --black: rgba(0, 0, 0, 0.8);
   --yellow1: #ff7e07;
   --green1: #15bc30;
   --white1: #ffffff;
@@ -121,7 +121,7 @@
 }
 
 :where([data-ming-toast-item][data-type="message"]) {
-  background-color: var(--black);
+  background-color: var(--ming-toast-bg-color);
   display: flex;
   justify-content: center;
   align-items: center;
