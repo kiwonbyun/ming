@@ -27,6 +27,7 @@ interface ModalProps extends Omit<HTMLAttributes<HTMLDivElement>, "children"> {
 }
 
 let defaultDimClose = true;
+const ANIMATION_FADE_OUT_TIME = 100;
 
 const ModalRoot = ({ dimAutoClose = true }) => {
   defaultDimClose = dimAutoClose;
@@ -45,13 +46,13 @@ const Modal = ({ trigger, children, ...props }: ModalProps) => {
       setIsRemoving(true);
       setTimeout(() => {
         ModalState.close(modalId);
-      }, 100);
+      }, ANIMATION_FADE_OUT_TIME);
     },
     clear: () => {
       setIsRemoving(true);
       setTimeout(() => {
         ModalState.closeAll();
-      }, 100);
+      }, ANIMATION_FADE_OUT_TIME);
     },
   };
 
@@ -82,7 +83,7 @@ const Modal = ({ trigger, children, ...props }: ModalProps) => {
   }, []);
 
   useEffect(() => {
-    ModalState.subscribe((modal) => {
+    const unsubscribe = ModalState.subscribe((modal) => {
       if (modal.id !== modalId) return;
       if (modal.isOpen) {
         setIsRemoving(false);
@@ -91,9 +92,11 @@ const Modal = ({ trigger, children, ...props }: ModalProps) => {
         setIsRemoving(true);
         setTimeout(() => {
           setIsOpen(false);
-        }, 100);
+        }, ANIMATION_FADE_OUT_TIME);
       }
     });
+
+    return () => unsubscribe();
   }, [modalId]);
 
   return (

@@ -54,6 +54,9 @@ function ModalSubmit({
       setIsLoading(true);
       onClick?.(e);
       const res = await action();
+      if (res === undefined) {
+        return;
+      }
       onSuccess?.(res);
       closeFunc();
     } catch (err) {
