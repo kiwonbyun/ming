@@ -1,5 +1,11 @@
 # @b-origin/ming-modal
 
+## 1.2.7
+
+### Patch Changes
+
+- modal aysnc action stop
+
 ## 1.2.6
 
 ### Patch Changes
